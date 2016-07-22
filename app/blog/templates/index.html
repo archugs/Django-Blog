@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+	<div class="left body-text">
+		{% if articles %}
+			<h2>{{ random.title }}</h2>
+			<img class="main-image" src="{{ random.get_image }}" />
+			<div>
+				{{ random.body|truncatewords:100 }}
+			</div>
+			<ul>
+			{% for article in articles %}
+				<li>
+				<h2>{{ article.title }}</h2>
+				{{ article.body|truncatewords:75 }}
+				<p><a href="{{ article.get_absolute_url }}">Read more</a></p>
+				</li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>There are no posts.</p>
+		{% endif %}
+	</div>
+{% endblock %}

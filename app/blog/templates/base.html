@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+		<div class="wrapper">
+			<div class="left side-nav">
+				<i class="fa fa-bars"></i>	
+				<i class="fa fa-search"></i>	
+				<p><a class="nav" href="/"><i class="fa fa-book"></i></a></p>
+				<p><a class="nav" href="#"><i class="fa fa-book"></i></a></p>
+				<p><a class="nav" href="#"><i class="fa fa-book"></i></a></p>
+				<p><a class="nav" href="#"><i class="fa fa-book"></i></a></p>
+				<p><a class="nav" href="#"><i class="fa fa-book"></i></a></p>
+			</div>
+        	{% block content %}
+        	{% endblock %}
+			<div class="next-section" id="images" style="clear:both;">
+				<h2 class="next-title">What to Read Next</h2>
+				{% for article in next_articles %}
+					<a href="{{ article.get_absolute_url }}">
+						<img src="{{ article.get_image }}" width="150px" height="150px">
+						<div class="caption"><b>{{ article.title }}</b></div>
+					 </a>
+				{% endfor %}
+			</div>
+		</div>
+    </body>
+</html>

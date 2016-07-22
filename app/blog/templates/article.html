@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block head_title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+	<h2>{{ article.title }}</h2>
+	<img class="main-image" src="{{ article.get_image }}" />
+	<div>
+	{% if article.optional_image %}
+		<img align="right" class="optional-image" src="{{ article.get_optional_image }}" height="300px" width="300px" />
+	{% endif %}
+	<p class="main-body">
+    {{ article.body }}
+	</p>
+	</div>
+{% endblock %}
